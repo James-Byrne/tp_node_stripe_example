@@ -47,13 +47,12 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 
 // Render the index page to the user
-app.use('/', donationsRoute.handleGet);
+app.get('/', donationsRoute.handleGet);
 // Expose the charges controller
 app.post('/charges', chargesController.handlePost);
 
 // Catch 404 and re-direct to the index page
 app.use(function (req, res, next) {
-  // res.redirect('/');
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
