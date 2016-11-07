@@ -59,7 +59,7 @@ stripeHandlerModule._stripeHandler = function (err) {
 
     default:
       // Handle any other types of unexpected errors
-      return { error: 'err_not_stripe' };
+      return { error: { type: 'err_not_stripe' } };
   }
 };
 
