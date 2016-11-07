@@ -1,8 +1,9 @@
-const stripe = require('stripe')('YourAPIKeyHere');
+import config from '../config/config';
+const stripe = require('stripe')(config.stripeKey);
 const stripeHandlerModule = {};
 
 // Point the app at Testing Pays' Stripe Charge sim
-stripe.setHost('0.0.0.0', 8000, 'http');
+stripe.setHost('api.testingpays.com', 443, 'https');
 stripe._setApiField('basePath', '/stripe/v1/');
 stripe._prepResources();
 
