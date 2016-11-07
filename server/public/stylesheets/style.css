@@ -1,0 +1,59 @@
+.products-container {
+  margin-top: 45px; }
+
+.product-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 2px #888888;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 55px;
+  height: 100%; }
+
+.price-holder {
+  width: 100%;
+  height: 80px;
+  margin-top: 0;
+  margin-bottom: 40px;
+  background-color: #7986CB;
+  color: white; }
+  .price-holder h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 15px; }
+
+.product-description {
+  margin-bottom: 45px; }
+
+.product-footer .btn {
+  border-radius: 0; }
+
+.navbar {
+  border-radius: 0; }
+
+.navbar-default {
+  border-color: transparent;
+  border-bottom-color: white;
+  background-color: transparent; }
+
+.navbar-default .navbar-brand {
+  color: #424242; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #424242; }
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #FAFAFA;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/images/new-york.png");
+  background-size: cover;
+  color: #424242; }
+
+.padding-top {
+  padding-top: 55px; }
+
+hr {
+  border-color: #BDBDBD; }
+
+/*# sourceMappingURL=style.css.map */
