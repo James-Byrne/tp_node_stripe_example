@@ -27,7 +27,7 @@ describe('/charges', function () {
       .send({
         amount: 123.80,
         stripeToken: 'tok_12345678'
-      }).expect(422).then((res) => {
+      }).expect(400).then((res) => {
         expect(res.body.type).to.equal('invalid_request_error');
       }).catch((err) => {
         console.log(err);
@@ -40,7 +40,7 @@ describe('/charges', function () {
       .send({
         amount: 123.91,
         stripeToken: 'tok_12345678'
-      }).expect(422).then((res) => {
+      }).expect(429).then((res) => {
         expect(res.body.type).to.equal('rate_limit_error');
       }).catch((err) => {
         console.log(err);
@@ -53,7 +53,7 @@ describe('/charges', function () {
       .send({
         amount: 123.86,
         stripeToken: 'tok_12345678'
-      }).expect(422).then((res) => {
+      }).expect(401).then((res) => {
         expect(res.body.type).to.equal('authentication_error');
       }).catch((err) => {
         console.log(err);
