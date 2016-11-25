@@ -2,7 +2,7 @@ import config from '../config/config';
 const stripe = require('stripe')(config.stripeKey);
 const stripeHandlerModule = {};
 
-// Point the app at Testing Pays' Stripe Charge sim
+// Point the app at Testing Pays' Stripe charge Sim
 stripe.setHost('api.testingpays.com', 443, 'https');
 stripe._setApiField('basePath', '/stripe/v1/');
 stripe._prepResources();
@@ -45,21 +45,21 @@ stripeHandlerModule.createCharge = function (amount, source) {
  */
 stripeHandlerModule._stripeHandler = function (err) {
   switch (err.type) {
-    case ('RateLimitError'):            // Too many requests hit the API too quickly
+    case ('StripeRateLimitError'):      // Too many requests hit the API too quickly
     case ('StripeAPIError'):            // Generic stripe error
     case ('StripeCardError'):           // Most common error, occurs when card cannot be charged
     case ('StripeConnectionError'):     // Failed to connect to stripes api
     case ('StripeInvalidRequestError'): // The request has invalid params
     case ('StripeAuthenticationError'): // Failed to authenticate with stripes api
       if (err.raw) {
-        return { error: err.raw };
+        return { error: err.raw, status: err.statusCode };
       } else {
-        return { error: err.message };
+        return { error: err.message, status: err.statusCode };
       }
 
     default:
       // Handle any other types of unexpected errors
-      return { error: { type: 'err_not_stripe' } };
+      return { error: { type: 'err_not_stripe' }, status: err.statusCode };
   }
 };
 

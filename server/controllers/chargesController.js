@@ -10,7 +10,7 @@ chargesController.handlePost = function (req, res, next) {
   stripeHandlerModule.createCharge(req.body.amount, req.body.stripeToken)
   .then((result) => {
     if (result.error) {
-      res.status(422).send(result.error);
+      res.status(result.status).send(result.error);
     } else {
       res.status(200).send(result);
     }
