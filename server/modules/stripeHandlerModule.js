@@ -4,7 +4,7 @@ const stripeHandlerModule = {};
 
 // Point the app at Testing Pays' Stripe charge Sim
 stripe.setHost('api.testingpays.com', 443, 'https');
-stripe._setApiField('basePath', '/stripe/v1/');
+stripe._setApiField('basePath', `/${config.stripeKey}/stripe/v1/`);
 stripe._prepResources();
 
 /**
