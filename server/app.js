@@ -7,9 +7,9 @@ import bodyParser from 'body-parser';
 // this will be used to handle stripe requests
 import chargesController from './controllers/chargesController';
 
-// import the donations route
+// import the charges route
 // this will serve as our index route
-import donationsRoute from './routes/donationsRoute';
+import chargesRoute from './routes/chargesRoute';
 
 const app = express();
 
@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 
 // Render the index page to the user
-app.get('/', donationsRoute.handleGet);
+app.get('/', chargesRoute.handleGet);
 // Expose the charges controller
 app.post('/charges', chargesController.handlePost);
 
